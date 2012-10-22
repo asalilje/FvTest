@@ -1,0 +1,4 @@
+﻿@model System.DateTime
+@(Model == DateTime.MinValue ? 
+	Html.TextBox("", DateTime.Now.ToString("yyyy-MM-dd"), new { data_datepicker = true, data_val_date = ""}) : 
+	Html.TextBox("", Model.ToString("yyyy-MM-dd"), new { data_datepicker = true, data_val_date = "" }))

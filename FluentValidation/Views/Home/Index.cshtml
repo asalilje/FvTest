@@ -1,0 +1,68 @@
+﻿@model FVTest.Models.Deviation
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lägg till avvikelse</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Deviation</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Types)
+        </div>
+        <div class="editor-field">
+			@Html.DropDownListFor(model => model.Types, new SelectList(Model.Types))
+			@Html.ValidationMessageFor(model => model.Types)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PeriodFromDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PeriodFromDate)
+            @Html.ValidationMessageFor(model => model.PeriodFromDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PeriodToDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PeriodToDate)
+            @Html.ValidationMessageFor(model => model.PeriodToDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User)
+            @Html.ValidationMessageFor(model => model.User)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Enter1)
+        </div>
+		<div class="editor-field">
+			@Html.TextBoxFor(model => model.Enter1)
+			@Html.ValidationMessageFor(model => model.Enter1)
+		</div>
+		
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Enter2)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Enter2)
+            @Html.ValidationMessageFor(model => model.Enter2)
+        </div>
+
+		<p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
