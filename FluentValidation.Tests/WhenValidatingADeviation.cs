@@ -1,4 +1,5 @@
 ﻿using System;
+using FVTest.Models;
 using FVTest.Models.Validators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentValidation;
@@ -52,5 +53,13 @@ namespace FVTest.Tests
 			//Act, Assert
 			_validator.ShouldHaveValidationErrorFor(deviation => deviation.PeriodFromDate, "2012/10/10");
 		}
+
+        [TestMethod]
+        public void ShouldGetErrorWhenFromDateIsGreaterThanToDate()
+        {
+            var deviation = new Deviation {PeriodFromDate = "2012-10-10", PeriodToDate = "2012-10-01"};
+            _validator.ShouldHaveValidationErrorFor(x => x.PeriodToDate, deviation);
+
+        }
 	}
 }
